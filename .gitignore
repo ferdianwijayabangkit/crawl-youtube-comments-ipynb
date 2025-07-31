@@ -1,0 +1,32 @@
+# File dan folder yang dihasilkan Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Folder Virtual Environment
+venv/
+env/
+.venv/
+.env/
+
+# File spesifik Jupyter Notebook
+.ipynb_checkpoints/
+
+# File output hasil crawling (PENTING: JANGAN UNGGAH HASIL CRAWLING)
+*.xlsx
+*.json
+*.txt
+*.csv
+
+# Folder data (jika ada)
+data/
+datasets/
+
+# File sistem operasi
+.DS_Store
+Thumbs.db
+
+# File konfigurasi lokal (jika ada)
+local_settings.py
+.env
