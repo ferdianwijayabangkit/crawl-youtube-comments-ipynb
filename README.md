@@ -1,40 +1,46 @@
-# Sistem Crawling Komentar YouTube v1.0.0
+# 📊 Sistem Crawling Komentar YouTube
 
-Sebuah skrip Python dalam format Jupyter Notebook yang dirancang untuk melakukan ekstraksi (crawling) komentar dari video YouTube menggunakan YouTube Data API v3. Proyek ini dikembangkan oleh **Ferdian Bangkit Wijaya** dari **Universitas Sultan Ageng Tirtayasa** untuk keperluan penelitian akademik dan analisis data.
+![Version](https://img.shields.io/badge/version-1.0.0-blue)
+![License](https://img.shields.io/badge/license-MIT-green)
+![Python](https://img.shields.io/badge/Python-3.x-blue?logo=python)
+![API](https://img.shields.io/badge/API-YouTube%20Data%20v3-red?logo=youtube)
 
-## 📝 Deskripsi Proyek
-
-Tool ini memungkinkan peneliti untuk mengumpulkan data kualitatif dan kuantitatif dari kolom komentar video YouTube secara sistematis. Data yang dikumpulkan mencakup teks komentar, metadata penulis, jumlah suka, balasan, serta informasi detail dari video itu sendiri.
+Sebuah skrip Python untuk mengekstrak komentar video YouTube secara sistematis menggunakan YouTube Data API v3. Dirancang untuk penelitian akademik dan analisis data.
 
 ## ✨ Fitur Utama
 
-- **Ekstraksi Otomatis**: Mengambil komentar dan balasan dari satu atau lebih video YouTube.
-- **Pengumpulan Metadata**: Mengumpulkan informasi penting video seperti judul, durasi, jumlah tayangan, dan kategori.
-- **Analisis Sentimen**: Melakukan analisis sentimen dasar (positif, negatif, netral) pada teks komentar.
-- **Ekspor Data**: Menyimpan hasil crawling ke dalam format **Excel (.xlsx)**, **JSON (.json)**, dan **Teks (.txt)** untuk analisis lebih lanjut.
-- **Antarmuka Interaktif**: Menggunakan widget Jupyter untuk memudahkan konfigurasi tanpa mengubah kode.
-- **Manajemen Quota API**: Dirancang untuk efisiensi dan dilengkapi monitoring penggunaan API.
+- **Ekstraksi Otomatis**: Mengambil semua komentar dan balasannya dari video YouTube target.
+- **Pengumpulan Metadata Video**: Mengumpulkan informasi penting seperti judul, durasi, jumlah tayangan, dan kategori.
+- **Analisis Sentimen**: Melakukan analisis sentimen dasar (positif, negatif, netral) pada setiap komentar.
+- **Ekspor Multi-Format**: Menyimpan hasil ke dalam format **Excel (.xlsx)**, **JSON (.json)**, dan **Teks (.txt)**.
+- **Antarmuka Interaktif**: Menggunakan widget Jupyter untuk konfigurasi API Key dan URL video tanpa mengubah kode.
+- **Manajemen Quota API**: Dirancang untuk efisiensi dan dilengkapi pemantauan penggunaan kuota API.
 
-## ⚙️ Persyaratan
+## 🔧 Tumpukan Teknologi (Tech Stack)
 
-Sebelum menjalankan notebook, pastikan Anda memiliki:
+- **API**: `Google API Python Client` (untuk YouTube Data API v3)
+- **Analisis Data**: `Pandas`
+- **Analisis Teks**: `TextBlob` atau library sejenis untuk sentimen
+- **Antarmuka Pengguna**: `IPython Widgets`
+- **Lingkungan**: `Jupyter Notebook`
 
-1. **Python 3.x** terinstal.
-2. **API Key** dari Google Cloud Console.
-3. **YouTube Data API v3** yang sudah diaktifkan pada proyek Google Cloud Anda.
-4. Koneksi internet yang stabil.
+## 🚀 Cara Memulai
 
-## 🚀 Instalasi & Cara Penggunaan
+### Prasyarat
+- **Python 3.x** sudah terinstal di sistem Anda.
+- **Kunci API (API Key)** dari Google Cloud Console yang telah mengaktifkan **YouTube Data API v3**.
+- Koneksi internet yang stabil.
 
-1. **Clone Repositori**
+### Instalasi & Penggunaan
 
+1.  **Clone Repositori**
+    Gunakan `git` untuk mengunduh proyek ke komputer lokal Anda.
     ```bash
-    git clone https://github.com/ferdianwijayabangkit/crawl-youtube-comments-ipynb
+    git clone [https://github.com/ferdianwijayabangkit/crawl-youtube-comments-ipynb](https://github.com/ferdianwijayabangkit/crawl-youtube-comments-ipynb)
     cd crawl-youtube-comments-ipynb
     ```
 
-2. **Buat Virtual Environment (Sangat Disarankan)**
-
+2.  **Buat & Aktifkan Virtual Environment** (Sangat Direkomendasikan)
     ```bash
     # Untuk Windows
     python -m venv venv
@@ -45,24 +51,47 @@ Sebelum menjalankan notebook, pastikan Anda memiliki:
     source venv/bin/activate
     ```
 
-3. **Jalankan Jupyter Notebook**
-    Buka notebook menggunakan Jupyter, Google Colab, atau Visual Studio Code.
-
+3.  **Jalankan Notebook**
+    Buka file `.ipynb` menggunakan Jupyter, Google Colab, atau VS Code.
     ```bash
     jupyter notebook Youtube_Komentar_v1.0.ipynb
     ```
 
-4. **Konfigurasi dan Eksekusi**
-    - Jalankan sel-sel notebook secara berurutan dari atas ke bawah.
-    - Masukkan **API Key** Anda pada widget di **Bagian 4**.
-    - Masukkan URL video yang ingin di-crawl pada widget di **Bagian 3**.
-    - Konfigurasikan atribut yang ingin diambil di **Bagian 6**.
-    - Mulai proses crawling di **Bagian 7**.
+4.  **Eksekusi di dalam Notebook**
+    - **Jalankan sel instalasi** untuk mengunduh semua pustaka yang diperlukan secara otomatis.
+    - **Masukkan Kunci API Anda** pada widget yang tersedia.
+    - **Masukkan URL video YouTube** yang ingin Anda analisis.
+    - **Mulai Proses Crawling** dengan menjalankan sel eksekusi utama.
 
-## ⚖️ Lisensi
+## 📊 Struktur Data Output
 
-Proyek ini dilisensikan di bawah **Lisensi MIT**. Lihat file `LICENSE` untuk detail lengkap. Harap gunakan tool ini secara etis dan hanya untuk tujuan penelitian akademik sesuai dengan kebijakan penggunaan yang dijelaskan dalam notebook.
+Data yang berhasil diekstrak akan memiliki kolom-kolom informatif, seperti:
 
-## ⚠️ Disclaimer
+| Field           | Deskripsi                                    | Contoh                                     |
+| --------------- | -------------------------------------------- | ------------------------------------------ |
+| `video_id`      | ID unik dari video YouTube                   | "AbCdEfGhIjK"                              |
+| `video_title`   | Judul lengkap video                          | "Tutorial Analisis Data dengan Python"     |
+| `comment_id`    | ID unik dari setiap komentar                 | "Ugw...9fl"                                |
+| `author_name`   | Nama channel dari pemberi komentar           | "Data Enthusiast"                          |
+| `comment_text`  | Isi teks dari komentar                       | "Sangat bermanfaat, terima kasih banyak!"  |
+| `published_at`  | Waktu komentar dipublikasikan                | "2025-08-06T01:30:00Z"                     |
+| `like_count`    | Jumlah suka yang diterima komentar           | 125                                        |
+| `reply_count`   | Jumlah balasan untuk komentar tersebut       | 5                                          |
+| `sentiment`     | Hasil analisis sentimen (Positif/Negatif/Netral) | "Positif"                              |
 
-Pengguna bertanggung jawab penuh atas penggunaan tool dan data yang dikumpulkan. Pastikan penggunaan Anda mematuhi [Persyaratan Layanan YouTube API](https://developers.google.com/youtube/terms/api-services-terms-of-service) dan regulasi privasi data yang berlaku.
+
+## ⚖️ Lisensi & Penafian
+
+- Proyek ini dilisensikan di bawah **Lisensi MIT**.
+- Pengguna bertanggung jawab penuh atas penggunaan tool dan data yang dikumpulkan. Pastikan penggunaan Anda mematuhi [Persyaratan Layanan YouTube API](https://developers.google.com/youtube/terms/api-services-terms-of-service) dan tidak melanggar privasi.
+- Gunakan Kunci API Anda dengan bijak untuk menghindari penggunaan kuota berlebih.
+
+## 👨‍💻 Author
+
+- **Ferdian Bangkit Wijaya**
+- Universitas Sultan Ageng Tirtayasa (UNTIRTA)
+- Versi: 1.0.0
+
+---
+
+> Tool ini dirancang untuk memfasilitasi penelitian berbasis data dari platform YouTube dengan cara yang etis dan efisien.
